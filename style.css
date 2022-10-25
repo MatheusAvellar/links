@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  position: relative;
+  min-height: 100vh;
+}
+::selection {  background-color: rgb(190,197,235,.8); color: #282f4d;  }
+::-moz-selection {  background-color: rgb(190,197,235,.8); color: #282f4d;  }
+ul ::selection {  background-color: rgba(221,225,255,.8); color: #121a37;  }
+ul ::-moz-selection {  background-color: rgba(221,225,255,.8); color: #121a37;  }
+body {
+  color: #3f484b;
+  background-color: #dbe4e7;
+  font-family: Inter, Roboto, sans-serif;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+header, main, footer {
+  max-width: 450px;
+  margin: auto;
+}
+header {
+  position: relative;
+  margin: 10rem auto 3rem;
+  padding: 0 1.5rem;
+}
+h1 {
+  font-size: 3.5rem;
+  line-height: .75;
+  letter-spacing: -2.5px;
+  margin: 0;
+}
+h2 {
+  color: #4b6268;
+  font-size: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+ul + h2 {
+  margin-top: 3rem;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+li {
+  background-color: #fbfcfd;/*#cee7ee;*/
+  border-radius: 1.5rem;
+  border: 2px solid #fbfcfd;
+}
+li:hover, li:focus-within, li:focus {
+  border-color: #4b6268;
+  background-color: #cee7ee;
+}
+li > a {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 1.5rem;
+  padding: 1.5rem;
+}
+li + li {
+  margin-top: 1rem;
+}
+a[href] {
+  text-decoration: none;
+}
+p {
+  margin: 0;
+}
+p.name {
+  line-height: 1.5rem;
+  font-weight: 500;
+  color: #001f26;
+}
+p.desc {
+  line-height: 1.5rem;
+  color: #3f484b;
+}
+svg {
+  stroke-width: 2px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke: #001f26;
+}
+.col2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.col2 li + li {
+  margin: 0;
+}
+footer {
+  margin: 3rem auto;
+  color: #4b6268;
+  padding: 0 1.5rem;
+}
+footer p {
+  margin-top: 1.5rem;
+}
+footer a[href] {
+  color: #006879;
+  text-decoration: underline;
+}
+#plant {
+  mix-blend-mode: darken;
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: calc(.5vw + 45%);
+  pointer-events: none;
+}
