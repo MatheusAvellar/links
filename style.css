@@ -4,6 +4,8 @@
 :root {
   position: relative;
   min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 ::selection {  background-color: rgb(190,197,235,.8); color: #282f4d;  }
 ::-moz-selection {  background-color: rgb(190,197,235,.8); color: #282f4d;  }
@@ -13,16 +15,19 @@ body {
   color: #3f484b;
   background-color: #dbe4e7;
   font-family: Inter, Roboto, sans-serif;
-  overflow-y: scroll;
   overflow-x: hidden;
+  margin: 0;
 }
 header, main, footer {
-  max-width: 450px;
+  max-width: calc(450px + 3rem);
   margin: auto;
+  padding: 0 3rem;
 }
 header {
   position: relative;
   margin: 10rem auto 3rem;
+}
+main {
   padding: 0 1.5rem;
 }
 h1 {
@@ -46,13 +51,16 @@ ul {
   padding: 0;
 }
 li {
-  background-color: #fbfcfd;/*#cee7ee;*/
+  backdrop-filter: blur(20px) saturate(125%);
+  background-blend-mode: exclusion;
+  background-color: rgb(251,252,253,.7);
   border-radius: 1.5rem;
   border: 2px solid #fbfcfd;
+  transition: transform .1s ease, background-color .1s ease;
 }
 li:hover, li:focus-within, li:focus {
-  border-color: #4b6268;
-  background-color: #cee7ee;
+  background-color: rgba(206,231,238,.8);
+  transform: scale(1.0125);
 }
 li > a {
   display: grid;
@@ -73,10 +81,13 @@ p.name {
   line-height: 1.5rem;
   font-weight: 500;
   color: #001f26;
+  white-space: nowrap;
+  overflow-x: hidden;
 }
 p.desc {
   line-height: 1.5rem;
   color: #3f484b;
+  font-size: 85%;
 }
 svg {
   stroke-width: 2px;
@@ -97,23 +108,38 @@ svg {
 .col2 li + li {
   margin: 0;
 }
+.long {
+  grid-column: 1/3;
+}
+@media screen and (max-width: 500px) {
+  .col2 {
+    grid-template-columns: 1fr;
+  }
+  .long {
+    grid-column: auto;
+  }
+}
 footer {
   margin: 3rem auto;
   color: #4b6268;
-  padding: 0 1.5rem;
 }
 footer p {
   margin-top: 1.5rem;
 }
 footer a[href] {
   color: #006879;
+  position: relative;
+}
+footer a[href]:hover,
+footer a[href]:focus,
+footer a[href]:active {
+  color: #690005;
   text-decoration: underline;
 }
 #plant {
-  mix-blend-mode: darken;
   position: absolute;
   z-index: -1;
   bottom: 0;
-  left: calc(.5vw + 45%);
+  left: calc(50vw - 40px);
   pointer-events: none;
 }
