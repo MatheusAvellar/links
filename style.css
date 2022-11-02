@@ -51,16 +51,25 @@ ul {
   padding: 0;
 }
 li {
-  backdrop-filter: blur(20px) saturate(125%);
-  background-blend-mode: exclusion;
-  background-color: rgb(251,252,253,.7);
+  background-color: rgb(251,252,253,.95);
   border-radius: 1.5rem;
   border: 2px solid #fbfcfd;
   transition: transform .1s ease, background-color .1s ease;
 }
 li:hover, li:focus-within, li:focus {
-  background-color: rgba(206,231,238,.8);
+  background-color: rgba(206,231,238,.95);
   transform: scale(1.0125);
+}
+@media screen and (min-width: 500px) {
+  li {
+    background-color: rgb(251,252,253,.7);
+    backdrop-filter: blur(20px) saturate(125%);
+    background-blend-mode: exclusion;
+  }
+  li:hover, li:focus-within, li:focus {
+    background-color: rgba(206,231,238,.8);
+    transform: scale(1.0125);
+  }
 }
 li > a {
   display: grid;
