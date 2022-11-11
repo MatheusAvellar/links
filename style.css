@@ -45,6 +45,14 @@ h2 {
 ul + h2 {
   margin-top: 3rem;
 }
+h2 + small {
+  display: block;
+  color: #4b6268;
+  font-size: 80%;
+  padding-left: 1.5rem;
+  margin-top: -.75rem;
+  margin-bottom: 1rem;
+}
 ul {
   list-style: none;
   margin: 0;
@@ -56,7 +64,10 @@ li {
   border: 2px solid #fbfcfd;
   transition: transform .1s ease, background-color .1s ease;
 }
-li:hover, li:focus-within, li:focus {
+li:empty { display: none; }
+li:not(:empty):hover,
+li:not(:empty):focus-within,
+li:not(:empty):focus {
   background-color: rgba(206,231,238,.95);
   transform: scale(1.0125);
 }
@@ -66,7 +77,13 @@ li:hover, li:focus-within, li:focus {
     backdrop-filter: blur(20px) saturate(125%);
     background-blend-mode: exclusion;
   }
-  li:hover, li:focus-within, li:focus {
+  li:empty {
+    display: unset;
+    background-color: rgb(251,252,253,.5);
+  }
+  li:not(:empty):hover,
+  li:not(:empty):focus-within,
+  li:not(:empty):focus {
     background-color: rgba(206,231,238,.8);
     transform: scale(1.0125);
   }
@@ -79,6 +96,15 @@ li > a {
 }
 li + li {
   margin-top: 1rem;
+}
+li.unused {
+  background-color: rgb(251,252,253,.5);
+}
+li.unused:not(:hover) p.name,
+li.unused:not(:hover) p.desc,
+li.unused:not(:hover) svg.icon {
+  color: #868c91;
+  stroke: #868c91;
 }
 a[href] {
   text-decoration: none;
