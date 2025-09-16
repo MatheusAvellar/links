@@ -135,6 +135,11 @@ svg {
 	height: 1.5rem;
 	stroke: #001f26;
 }
+.icon-filled {
+	width: 1.5rem;
+	height: 1.5rem;
+	fill: #001f26;
+}
 .col2 {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
